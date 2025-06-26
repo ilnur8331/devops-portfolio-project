@@ -1,0 +1,7 @@
+- name: Настройка сервера
+  hosts: servers
+  become: yes
+  roles:
+    - docker
+    - minio
+    - flask

@@ -1,0 +1,19 @@
+- name: Склонировать репозиторий
+  git:
+    repo: https://github.com/your/flask-app.git
+    dest: /opt/flask-app
+
+- name: Собрать Docker-образ
+  docker_image:
+    build:
+      path: /opt/flask-app
+    name: flask-app
+
+- name: Запустить контейнер
+  docker_container:
+    name: flask
+    image: flask-app
+    state: started
+    restart_policy: always
+    ports:
+      - "5000:5000"

@@ -1,0 +1,19 @@
+- name: Создание папки под MinIO
+  file:
+    path: /opt/minio
+    state: directory
+
+- name: Запуск MinIO через Docker
+  docker_container:
+    name: minio
+    image: minio/minio
+    state: started
+    restart_policy: always
+    command: server /data
+    env:
+      MINIO_ACCESS_KEY: minioadmin
+      MINIO_SECRET_KEY: minioadmin
+    volumes:
+      - /opt/minio:/data
+    ports:
+      - "9000:9000"

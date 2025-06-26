@@ -1,0 +1,12 @@
+containers:  
+- name: {{ .Chart.Name }}
+  image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+  ports:
+    - containerPort: 5000  
+  env:  
+    - name: AWS_ACCESS_KEY_ID
+      value: "minioadmin"  
+    - name: AWS_SECRET_ACCESS_KEY
+      value: "minioadmin"  
+    - name: S3_ENDPOINT
+      value: "http://minio.default.svc.cluster.local:9000"  
