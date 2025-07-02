@@ -1,10 +1,11 @@
 # DevOps-проект для портфолио
 
-Простой DevOps-проект, демонстрирующий навыки контейнеризации, автоматизации, CI/CD и IaC. Использует Flask, Docker, Ansible, Terraform, MinIO и GitLab CI/CD.
+Простой DevOps-проект, демонстрирующий навыки контейнеризации, автоматизации, CI/CD и IaC. Использует Flask, Docker, Ansible, Terraform, MinIO и GitLab CI/CD, Prometheus + Grafana + Loki + Promtail, Trivy (сканирование образов), Semgrep (анализ кода) в CI
+
 
 ## Что делает проект
 
-Приложение на Flask возвращает "Hello from DevOps!". Всё контейнеризовано и разворачивается через Ansible. Инфраструктура описана в Terraform. GitLab CI/CD автоматизирует сборку и деплой.
+Приложение на Flask возвращает "Hello from DevOps!". Всё контейнеризовано и разворачивается через Ansible. Инфраструктура описана в Terraform. GitLab CI/CD автоматизирует сборку и деплой. Добавлен мониторинг с Prometheus и Grafana для отслеживания состояния приложения и инфраструктуры. Используется Trivy для автоматического сканирования Docker-образов и зависимостей на уязвимости перед деплоем.
 
 ## Технологии
 
@@ -14,6 +15,8 @@
 - Terraform — инфраструктура как код
 - GitLab CI/CD — автоматизация
 - MinIO — локальное S3 (аналог Ceph)
+- Prometheus + Grafana + Loki + Promtail
+- Trivy (сканирование образов), Semgrep (анализ кода) в CI
 
 ## Запуск
 
@@ -35,6 +38,7 @@
    
 6. - Мониторинг: Prometheus + Grafana + Loki + Promtail через docker-compose
 - DevSecOps: Trivy (сканирование образов), Semgrep (анализ кода) в CI
+
 ## Что показывает
 
 - Владение Docker и Python
