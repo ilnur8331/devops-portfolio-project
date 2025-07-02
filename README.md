@@ -32,7 +32,9 @@
 
 5. GitLab CI/CD:  
    Пайплайн запускается автоматически при push.
-
+   
+6. - Мониторинг: Prometheus + Grafana + Loki + Promtail через docker-compose
+- DevSecOps: Trivy (сканирование образов), Semgrep (анализ кода) в CI
 ## Что показывает
 
 - Владение Docker и Python
