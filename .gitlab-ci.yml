@@ -2,6 +2,7 @@
 stages:
   - build
   - deploy
+  - security-scan
 
 variables:
   DOCKER_DRIVER: overlay2
@@ -30,3 +31,16 @@ deploy_terraform:
     - cd terraform
     - terraform init
     - terraform apply -auto-approve
+trivy_scan:
+  image:
+    name: aquasec/trivy:latest
+  stage: security-scan
+  script:
+    - trivy image your-image-name:latest
+
+semgrep_scan:
+  image:
+    name: returntocorp/semgrep
+  stage: security-scan
+  script:
+    - semgrep --config=auto .
